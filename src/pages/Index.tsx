@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -39,103 +40,183 @@ const Index = () => {
           <p className="text-xl mb-8 opacity-90">
             Empowering Our Community Through Local Commerce
           </p>
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <Card className="bg-white/10 backdrop-blur border-white/20 text-white">
-              <CardHeader>
-                <CardTitle className="text-white">Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-white/90">
-                  To bridge the gap between Mathikere residents and local vendors by providing a seamless platform that fosters community growth, supports small businesses, and promotes sustainable local commerce.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur border-white/20 text-white">
-              <CardHeader>
-                <CardTitle className="text-white">Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-white/90">
-                  To become the go-to platform for Mathikere's residents and vendors, enhancing local trade and building a self-sustaining community ecosystem.
-                </p>
-              </CardContent>
-            </Card>
+          <p className="text-lg mb-8 opacity-80 max-w-3xl mx-auto">
+            A community-driven platform that bridges the gap between Mathikere residents and local vendors, 
+            promoting sustainable local commerce while saving costs and supporting small businesses.
+          </p>
+          <div className="flex justify-center space-x-4 flex-wrap gap-2">
+            <Button 
+              onClick={() => setActiveForm('vendor')}
+              className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg"
+              size="lg"
+            >
+              Join as Vendor
+            </Button>
+            <Button 
+              onClick={() => setActiveForm('consumer')}
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg"
+              size="lg"
+            >
+              Join as Consumer
+            </Button>
           </div>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
-        {/* Why Choose Us Section */}
+        {/* Problem Statement Section */}
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            💡 Why Choose Mathikere Local Connect?
+            🚨 The Challenge We Face
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-12">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="bg-red-50 border-red-200 hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl text-green-600">For Consumers</CardTitle>
+                <CardTitle className="text-2xl text-red-600 flex items-center">
+                  💸 High Delivery Charges
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">💰</Badge>
-                  <div>
-                    <h4 className="font-semibold">Cost Savings</h4>
-                    <p className="text-gray-600">Avoid high delivery charges and surcharges imposed by larger platforms.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">🔍</Badge>
-                  <div>
-                    <h4 className="font-semibold">Transparency</h4>
-                    <p className="text-gray-600">Know exactly where your money goes, supporting local businesses directly.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">🌱</Badge>
-                  <div>
-                    <h4 className="font-semibold">Environmental Impact</h4>
-                    <p className="text-gray-600">Reduce carbon footprint by minimizing long-distance deliveries.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">🛍️</Badge>
-                  <div>
-                    <h4 className="font-semibold">Convenience</h4>
-                    <p className="text-gray-600">Access a variety of local vendors in one place.</p>
-                  </div>
-                </div>
+              <CardContent>
+                <p className="text-gray-700 mb-4">
+                  Popular delivery platforms charge ₹30-60 per order in delivery fees, plus surge pricing during peak hours.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Platform fees: ₹5-15 per order</li>
+                  <li>• Delivery charges: ₹30-60</li>
+                  <li>• Surge pricing: Up to 2x during peak times</li>
+                  <li>• GST on all fees: Additional 18%</li>
+                </ul>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-orange-50 border-orange-200 hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl text-blue-600">For Vendors</CardTitle>
+                <CardTitle className="text-2xl text-orange-600 flex items-center">
+                  📈 Price Inflation
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">👁️</Badge>
-                  <div>
-                    <h4 className="font-semibold">Increased Visibility</h4>
-                    <p className="text-gray-600">Reach more local customers without hefty commission fees.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">💪</Badge>
-                  <div>
-                    <h4 className="font-semibold">Empowerment</h4>
-                    <p className="text-gray-600">Maintain control over pricing and offerings.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Badge variant="secondary" className="mt-1">🤝</Badge>
-                  <div>
-                    <h4 className="font-semibold">Community Support</h4>
-                    <p className="text-gray-600">Be part of a movement that values and uplifts local businesses.</p>
-                  </div>
-                </div>
+              <CardContent>
+                <p className="text-gray-700 mb-4">
+                  Items are often marked up 15-30% higher than local market prices to cover commission fees.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Restaurant commission: 20-30%</li>
+                  <li>• Grocery markup: 15-25%</li>
+                  <li>• Hidden service charges</li>
+                  <li>• No price transparency</li>
+                </ul>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="bg-green-50 border-green-200 hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl text-green-600 flex items-center">
+                  🌍 Environmental Impact
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 mb-4">
+                  Multiple long-distance deliveries increase carbon footprint and traffic congestion.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Increased vehicle emissions</li>
+                  <li>• Packaging waste</li>
+                  <li>• Traffic congestion</li>
+                  <li>• Resource inefficiency</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-purple-50 border-purple-200 hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl text-purple-600 flex items-center">
+                  🚫 Limited Access
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 mb-4">
+                  High costs make these services unaffordable for many residents, creating inequality.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Budget constraints for families</li>
+                  <li>• Limited vendor options</li>
+                  <li>• No direct vendor communication</li>
+                  <li>• Dependency on external platforms</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Solution Section */}
+        <section className="mb-20">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+            💡 Our Solution: Mathikere Local Connect
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="bg-gradient-to-br from-green-100 to-green-50 border-green-200 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                  🏪
+                </div>
+                <CardTitle className="text-xl text-green-700">Empower Local Vendors</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Provide local businesses with a digital presence without hefty commission fees, helping them reach more customers directly.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-blue-100 to-blue-50 border-blue-200 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                  💰
+                </div>
+                <CardTitle className="text-xl text-blue-700">Affordable Options</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Eliminate excessive delivery charges and platform fees, ensuring residents access reasonably priced goods from their neighborhood.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-emerald-100 to-emerald-50 border-emerald-200 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <div className="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                  🌱
+                </div>
+                <CardTitle className="text-xl text-emerald-700">Promote Sustainability</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Encourage eco-friendly practices through local sourcing, reduced transportation, and community-based commerce.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center bg-gradient-to-r from-green-600 to-blue-600 text-white py-12 px-8 rounded-2xl">
+            <h3 className="text-2xl font-bold mb-4">🎯 Our Mission & Vision</h3>
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Our Mission</h4>
+                <p className="text-white/90">
+                  To bridge the gap between Mathikere residents and local vendors by providing a seamless platform that fosters community growth, supports small businesses, and promotes sustainable local commerce.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-3">Our Vision</h4>
+                <p className="text-white/90">
+                  To become the go-to platform for Mathikere's residents and vendors, enhancing local trade and building a self-sustaining community ecosystem.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -147,16 +228,17 @@ const Index = () => {
           
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { step: "1", title: "Vendor Registration", desc: "Local businesses sign up, providing details about their offerings." },
-              { step: "2", title: "Consumer Browsing", desc: "Residents explore a curated list of local vendors." },
-              { step: "3", title: "Order Placement", desc: "Consumers place orders directly through the platform." },
-              { step: "4", title: "Delivery/Pickup", desc: "Options for home delivery or convenient local pickup." }
+              { step: "1", title: "Vendor Registration", desc: "Local businesses sign up, providing details about their offerings.", icon: "📝" },
+              { step: "2", title: "Consumer Browsing", desc: "Residents explore a curated list of local vendors.", icon: "🔍" },
+              { step: "3", title: "Direct Orders", desc: "Consumers place orders directly with vendors at fair prices.", icon: "🛒" },
+              { step: "4", title: "Local Delivery", desc: "Quick pickup or local delivery without excessive fees.", icon: "🚲" }
             ].map((item, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-4">
                     {item.step}
                   </div>
+                  <div className="text-3xl mb-2">{item.icon}</div>
                   <CardTitle className="text-lg">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -164,6 +246,149 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* Benefits Comparison Section */}
+        <section className="mb-20">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+            📈 Why Choose Mathikere Local Connect?
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl text-green-600">For Consumers</CardTitle>
+                <CardDescription>Save money and support your local community</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">💰</Badge>
+                  <div>
+                    <h4 className="font-semibold">Save ₹50-100 per order</h4>
+                    <p className="text-gray-600">Avoid high delivery charges and platform fees imposed by larger platforms.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">🔍</Badge>
+                  <div>
+                    <h4 className="font-semibold">Price Transparency</h4>
+                    <p className="text-gray-600">Know exactly where your money goes, supporting local businesses directly.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">🌱</Badge>
+                  <div>
+                    <h4 className="font-semibold">Reduce Carbon Footprint</h4>
+                    <p className="text-gray-600">Minimize environmental impact by supporting local commerce.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">🤝</Badge>
+                  <div>
+                    <h4 className="font-semibold">Community Connection</h4>
+                    <p className="text-gray-600">Build relationships with local vendors and strengthen community bonds.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl text-blue-600">For Vendors</CardTitle>
+                <CardDescription>Grow your business without hefty commissions</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">📈</Badge>
+                  <div>
+                    <h4 className="font-semibold">Increase Revenue by 20-30%</h4>
+                    <p className="text-gray-600">Keep more profits without paying high commission fees.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">🎯</Badge>
+                  <div>
+                    <h4 className="font-semibold">Direct Customer Connection</h4>
+                    <p className="text-gray-600">Build lasting relationships with your local customer base.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">⚡</Badge>
+                  <div>
+                    <h4 className="font-semibold">Control Your Business</h4>
+                    <p className="text-gray-600">Set your own prices and terms without platform restrictions.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Badge variant="secondary" className="mt-1">🏆</Badge>
+                  <div>
+                    <h4 className="font-semibold">Community Recognition</h4>
+                    <p className="text-gray-600">Be part of a movement that values local businesses.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="mb-20">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+            💬 What Our Community Says
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    R
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Rajesh Kumar</h4>
+                    <p className="text-sm text-gray-600">Local Resident</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  "This initiative will save us so much money on delivery charges. Supporting local vendors while saving costs - it's a win-win!"
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mr-4">
+                    P
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Priya Sharma</h4>
+                    <p className="text-sm text-gray-600">Kirana Store Owner</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  "Finally, a platform that doesn't take 25% commission! I can offer better prices to my customers and still make a decent profit."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    A
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Arun Nair</h4>
+                    <p className="text-sm text-gray-600">IT Professional</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">
+                  "Great concept! Mathikere needs this kind of community-driven platform. Looking forward to supporting local businesses."
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
@@ -179,16 +404,16 @@ const Index = () => {
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <Badge className="bg-orange-100 text-orange-700 mb-2">Special Discounts</Badge>
-                  <p className="text-gray-600">Early access to promotional offers</p>
+                  <Badge className="bg-orange-100 text-orange-700 mb-2">🎯 Exclusive Discounts</Badge>
+                  <p className="text-gray-600">Early access to promotional offers and special pricing</p>
                 </div>
                 <div className="text-center">
-                  <Badge className="bg-orange-100 text-orange-700 mb-2">Priority Support</Badge>
-                  <p className="text-gray-600">Dedicated assistance for early adopters</p>
+                  <Badge className="bg-orange-100 text-orange-700 mb-2">⚡ Priority Support</Badge>
+                  <p className="text-gray-600">Dedicated assistance and faster response times</p>
                 </div>
                 <div className="text-center">
-                  <Badge className="bg-orange-100 text-orange-700 mb-2">Community Recognition</Badge>
-                  <p className="text-gray-600">Featured spotlights for early vendor partners</p>
+                  <Badge className="bg-orange-100 text-orange-700 mb-2">🌟 Featured Recognition</Badge>
+                  <p className="text-gray-600">Spotlight features for early vendor partners</p>
                 </div>
               </div>
             </CardContent>
@@ -225,6 +450,7 @@ const Index = () => {
             </Button>
           </div>
 
+          {/* Registration Forms */}
           {activeForm === 'vendor' && (
             <Card className="max-w-2xl mx-auto">
               <CardHeader>
@@ -563,13 +789,20 @@ const Index = () => {
 
         {/* Call to Action */}
         <section className="text-center bg-gradient-to-r from-green-600 to-blue-600 text-white py-16 px-8 rounded-2xl">
-          <h2 className="text-3xl font-bold mb-4">📣 Spread the Word</h2>
+          <h2 className="text-3xl font-bold mb-4">📣 Join the Movement</h2>
           <p className="text-xl mb-8 opacity-90">
-            Help us grow by sharing this initiative with friends, family, and fellow residents.
+            Help us build a stronger, more connected Mathikere community.
           </p>
-          <p className="text-lg">
-            Together, we can build a stronger, more connected Mathikere.
+          <p className="text-lg mb-6">
+            Together, we can create a sustainable local economy that benefits everyone.
           </p>
+          <Button 
+            onClick={() => setActiveForm('consumer')}
+            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg"
+            size="lg"
+          >
+            Get Started Today
+          </Button>
         </section>
       </div>
     </div>
