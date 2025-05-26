@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -368,7 +367,7 @@ const Index = () => {
                 </div>
                 <div>
                   <Label>Phone</Label>
-                  <p className="text-blue-600">+91 98765 43210</p>
+                  <p className="text-blue-600">+91 9739130926</p>
                 </div>
               </CardContent>
             </Card>
@@ -396,26 +395,6 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-        </section>
-
-        {/* Social Media Section */}
-        <section className="mb-20">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            🔗 Stay Connected
-          </h2>
-          
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle>Follow us on social media to stay updated</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-center space-x-6">
-                <Badge variant="outline" className="px-4 py-2">Facebook: Mathikere Local Connect</Badge>
-                <Badge variant="outline" className="px-4 py-2">Twitter: @MathikereConnect</Badge>
-                <Badge variant="outline" className="px-4 py-2">Instagram: @MathikereLocalConnect</Badge>
-              </div>
-            </CardContent>
-          </Card>
         </section>
 
         {/* Call to Action */}
