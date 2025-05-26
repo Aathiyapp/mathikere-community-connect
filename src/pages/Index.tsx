@@ -12,12 +12,18 @@ import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const { toast } = useToast();
-  const [activeForm, setActiveForm] = useState<'vendor' | 'consumer' | null>(null);
+  const [activeForm, setActiveForm] = useState<'vendor' | 'consumer' | 'investor' | null>(null);
 
-  const handleFormSubmit = (type: 'vendor' | 'consumer') => {
+  const handleFormSubmit = (type: 'vendor' | 'consumer' | 'investor') => {
+    const messages = {
+      vendor: "Thank you for joining Mathikere Local Connect as a vendor. We'll be in touch soon!",
+      consumer: "Thank you for joining Mathikere Local Connect as a consumer. We'll be in touch soon!",
+      investor: "Thank you for your interest in partnering with Mathikere Local Connect. We'll review your information and get back to you soon!"
+    };
+    
     toast({
       title: "Registration Submitted!",
-      description: `Thank you for joining Mathikere Local Connect as a ${type}. We'll be in touch soon!`,
+      description: messages[type],
     });
     setActiveForm(null);
   };
@@ -195,7 +201,7 @@ const Index = () => {
             📝 Get Involved
           </h2>
           
-          <div className="flex justify-center space-x-4 mb-8">
+          <div className="flex justify-center space-x-4 mb-8 flex-wrap gap-2">
             <Button 
               onClick={() => setActiveForm('vendor')}
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg"
@@ -209,6 +215,13 @@ const Index = () => {
               size="lg"
             >
               Register as Consumer
+            </Button>
+            <Button 
+              onClick={() => setActiveForm('investor')}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
+              size="lg"
+            >
+              Partner with Us
             </Button>
           </div>
 
@@ -344,6 +357,161 @@ const Index = () => {
               </CardContent>
             </Card>
           )}
+
+          {activeForm === 'investor' && (
+            <Card className="max-w-2xl mx-auto">
+              <CardHeader>
+                <CardTitle className="text-2xl text-purple-600">Investment & Partnership Registration</CardTitle>
+                <CardDescription>Join us as an investor or business co-founder and help build Mathikere's future</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={(e) => { e.preventDefault(); handleFormSubmit('investor'); }} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="investorName">Full Name *</Label>
+                      <Input id="investorName" required />
+                    </div>
+                    <div>
+                      <Label htmlFor="investorCompany">Company/Organization</Label>
+                      <Input id="investorCompany" />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="investorPhone">Contact Number *</Label>
+                      <Input id="investorPhone" type="tel" required />
+                    </div>
+                    <div>
+                      <Label htmlFor="investorEmail">Email Address *</Label>
+                      <Input id="investorEmail" type="email" required />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="partnershipType">Type of Interest *</Label>
+                    <Select required>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select your interest" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="investor">Financial Investment</SelectItem>
+                        <SelectItem value="co-founder">Business Co-founder</SelectItem>
+                        <SelectItem value="advisor">Strategic Advisor</SelectItem>
+                        <SelectItem value="technology">Technology Partner</SelectItem>
+                        <SelectItem value="marketing">Marketing Partner</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="experience">Relevant Experience</Label>
+                    <Textarea id="experience" placeholder="Tell us about your background and relevant experience" />
+                  </div>
+                  <div>
+                    <Label htmlFor="contribution">How You Can Contribute *</Label>
+                    <Textarea id="contribution" required placeholder="Describe how you can contribute to Mathikere Local Connect's growth and success" />
+                  </div>
+                  <div>
+                    <Label htmlFor="investmentRange">Investment Range (if applicable)</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select investment range" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="under-1l">Under ₹1 Lakh</SelectItem>
+                        <SelectItem value="1l-5l">₹1-5 Lakhs</SelectItem>
+                        <SelectItem value="5l-10l">₹5-10 Lakhs</SelectItem>
+                        <SelectItem value="10l-25l">₹10-25 Lakhs</SelectItem>
+                        <SelectItem value="25l-50l">₹25-50 Lakhs</SelectItem>
+                        <SelectItem value="above-50l">Above ₹50 Lakhs</SelectItem>
+                        <SelectItem value="not-applicable">Not Applicable</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="timeline">Preferred Timeline</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="When would you like to get involved?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="immediate">Immediately</SelectItem>
+                        <SelectItem value="1-3months">1-3 Months</SelectItem>
+                        <SelectItem value="3-6months">3-6 Months</SelectItem>
+                        <SelectItem value="6-12months">6-12 Months</SelectItem>
+                        <SelectItem value="flexible">Flexible</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="flex justify-end space-x-3">
+                    <Button type="button" variant="outline" onClick={() => setActiveForm(null)}>
+                      Cancel
+                    </Button>
+                    <Button type="submit" className="bg-purple-600 hover:bg-purple-700">
+                      Submit Registration
+                    </Button>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+          )}
+        </section>
+
+        {/* Investor Call to Action */}
+        <section className="mb-20">
+          <Card className="bg-gradient-to-r from-purple-50 to-indigo-50 border-purple-200">
+            <CardHeader className="text-center">
+              <CardTitle className="text-3xl text-purple-600">🤝 Looking for Partners & Investors</CardTitle>
+              <CardDescription className="text-lg">
+                Are you an investor or business professional who believes in community-driven commerce?
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-semibold text-lg mb-3 text-purple-700">We're seeking:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">💰</Badge>
+                      <span>Financial investors who share our vision</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🧠</Badge>
+                      <span>Business co-founders with relevant expertise</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🎯</Badge>
+                      <span>Strategic advisors in technology and marketing</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🌟</Badge>
+                      <span>Industry experts in local commerce and community building</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-3 text-purple-700">What we offer:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🚀</Badge>
+                      <span>Ground-floor opportunity in growing market</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">💡</Badge>
+                      <span>Proven concept with strong community support</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🏆</Badge>
+                      <span>Opportunity to make meaningful social impact</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <Badge variant="secondary" className="text-xs">🤝</Badge>
+                      <span>Collaborative partnership approach</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Contact Section */}
@@ -363,11 +531,7 @@ const Index = () => {
               <CardContent className="space-y-4">
                 <div>
                   <Label>Email</Label>
-                  <p className="text-blue-600">connect@mathikerelocal.com</p>
-                </div>
-                <div>
-                  <Label>Phone</Label>
-                  <p className="text-blue-600">+91 9739130926</p>
+                  <p className="text-blue-600">aathiyappa008@gmail.com</p>
                 </div>
               </CardContent>
             </Card>
